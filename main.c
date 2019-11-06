@@ -4,37 +4,26 @@
 int main()
 {
 
+    int i,sayi,kontrol=0; // i, sayı ve kontrol adında üç değişken atadık
+    scanf("%d",&sayi); // sayi değişkenini kullanıcıdan aldık
+   for(i=2;i<sayi;i++) // 2'den başlayan bir for döngüsü tanımladık. 1 den başlayamaz çünkü asal sayının tanımına aykırı. 
+   {
 
-
-    int sayi,i; // değişkenler
-    printf("sayi giriniz"); // kullanıcıdan bir sayı alınıyor
-    scanf("%d",&sayi); // alınan sayı 'sayi' isimli değişkene aktarıldı
-
-
-
-if(sayi==2) // sayının 2 olup olmadığı kontrol ediliyor. 
-    printf("2 cift olan tek asal sayidir."); // 2 ise ekrana bu çıktı yazacak
-
-    else  // 2 değil ise aşağıdaki kod bloğu çalışmaya başlayacak.
-    {
-           for(i=2;i<sayi;i++) // 2 den başlayıp sayının bir eksiğine kadar giden döngü yaratıyoruz
-    {
-
-        if(sayi%i==0) // sayımızın, 2'den başlayıp kendi değerinin bir eksiğine kadar olan tüm sayıların bölümünü deniyoruz. bölümünden kalan 0 ise asal değildir.
-        {
-            printf("sayi asal degildir"); // eğer bölünen bir sayı olursa sayının asal olmadığını ekrana yazdırıyoruz
-            break; // döngüyü kırıyor.
-
-        }
-
-        else if (sayi-1==i) // bu kontrol, sayının bir eksiğine kadar tüm sayıların bölümünün denenip denenmediğini kontrol ediyor. 
-        {
-            printf("asal sayidir"); // girilen sayının bir eksiğine kadar tüm sayıların bölümü denenmiş ve hiçbir sayı, sayımızı bölememiş ise asal sayıdır. 
-        }
-
-
+        if(sayi%i==0) // sayımız kendisine kadar olan herhangi bir sayıya bölünüyor ise bu blok çalışacak
+          {
+             kontrol=1; //  kontrol değişkenini 1 yaptık. bu, sayımızın asal olmadığını gösterir
+              break; // döngüden çıkıldı
+           }
     }
-    }
+
+   if(kontrol==1) // kontrol 1 ise bu durumda sayımız, herhangi bir değere bölünmüş demektir. bu yüzden asal olmadığını ekrana yazdırdık.
+   {
+       printf("asal degildir");
+
+   }
+
+   else // kontrol 1 ise sayımız asal demektir.
+    printf("asaldir");
 
 
     return 0;
